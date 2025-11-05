@@ -21,5 +21,4 @@ jobs:
         #
         # !!! IMPORTANT !!!
         # You MUST replace the URL with your own live API URL after you deploy it.
-        run: curl --request GET 'https://your-api-url.onrender.com/api/v1/schedule'
-        
+        run: curl --request GET 'https://aggregated.onrender.com/api/v1'

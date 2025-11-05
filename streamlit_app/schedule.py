@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from api_client import get_schedule, get_all_leagues
 
 # Set page config as the first Streamlit command
-st.set_page_config(page_title="Niche Sports Schedule", page_icon="🗓️", layout="wide")
+st.set_page_config(page_title="Schedule", page_icon="🗓️", layout="wide")
 
 # --- ✂️ FAT CUT ---
 # Removed all auth.initialize_session() and token logic
@@ -43,7 +43,7 @@ st.markdown(
 # Removed the entire 'if token:' and 'else:' wrapper.
 # This page is now 100% public.
 
-st.title("🗓️ Niche Sports Schedule")
+st.title("Schedule")
 
 # --- 1. Fetch Public Data (No Token) ---
 schedule_data = get_schedule()

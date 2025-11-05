@@ -7,10 +7,10 @@ import pytz
 # Removed 'get_preferences' and 'login_user'
 from api_client import get_news, get_all_leagues
 
-st.set_page_config(page_title="Niche News", page_icon="📰")
+st.set_page_config(page_title="News", page_icon="📰")
 
 # --- 1. ADD THE MAIN TITLE ---
-st.title("📰 Niche Sports News")
+st.title("News Feed")
 
 # --- ✂️ FAT CUT ---
 # Removed all auth.initialize_session() and token logic
