@@ -16,9 +16,10 @@ LEAGUE_ID_MAP: Dict[str, Dict[str, str]] = {
 }
 
 # --- Niche RSS Feed Master List ---
+# --- Niche RSS Feed Master List ---
 RSS_FEEDS: Dict[str, List[str]] = {
     "Cycling": [
-        "https://velo.outsideonline.com/feed/",
+        "http://feeds2.feedburner.com/cyclingnews/news"  # <-- THIS IS THE NEW, RELIABLE FEED
     ],
     "Track & Field - Diamond League": ["https://www.letsrun.com/feed/"],
     "World Cup Rock Climbing": ["https://www.climbing.com/feed/"],
