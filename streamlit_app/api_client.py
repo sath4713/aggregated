@@ -106,7 +106,7 @@ def get_all_leagues():
     leagues_url = f"{API_URL}/leagues/"
     logger.info("API Client: Fetching all leagues (cached)...")
     try:
-        response = requests.get(leagues_url, timeout=10)
+        response = requests.get(leagues_url, timeout=30)
         if response.status_code == 200:
             logger.info("API Client: All leagues fetched successfully.")
             return response.json()
