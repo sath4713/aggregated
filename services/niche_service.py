@@ -419,11 +419,15 @@ def _get_climbing_schedule() -> List[PydanticGame]:
     upcoming_games = _filter_upcoming(games_current_year)
 
     if not upcoming_games:
-    logging.info(
-        f"Climbing season {current_year} over. Checking {current_year + 1}."
-    )
-    games_next_year = _scrape_climbing_wikipedia(current_year + 1)
-    return _filter_upcoming(games_next_year)
+        # --- THIS IS THE FIX ---
+        # The following lines are now correctly indented
+        logging.info(
+            f"Climbing season {current_year} over. Checking {current_year + 1}."
+        )
+        games_next_year = _scrape_climbing_wikipedia(current_year + 1)
+        return _filter_upcoming(games_next_year)
+        # --- END FIX ---
+
     return upcoming_games
 
 

@@ -1,0 +1,25 @@
+name: Warm API Cache
+
+on:
+  # This runs the job on a schedule
+  schedule:
+    # This is a "cron" expression that means "at minute 0 of every hour"
+    # (e.g., 1:00, 2:00, 3:00)
+    - cron: '0 * * * *'
+  
+  # This line lets you run it manually from the GitHub "Actions" tab
+  workflow_dispatch:
+
+jobs:
+  ping-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping the API's schedule endpoint
+        # This is the command that does the work.
+        # It sends a request to your API, which forces the
+        # scrapers to run if the cache is stale.
+        #
+        # !!! IMPORTANT !!!
+        # You MUST replace the URL with your own live API URL after you deploy it.
+        run: curl --request GET 'https://your-api-url.onrender.com/api/v1/schedule'
+        
