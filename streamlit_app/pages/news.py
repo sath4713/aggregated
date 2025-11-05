@@ -92,35 +92,27 @@ else:
         "Filter news by league:", options=league_options, default=league_options
     )
 
-    # --- Filter the cached list (This is fast) ---
     final_filtered_items = []
     seen_urls = set()
-    cycling_selected = "Cycling" in selected_leagues
+
+    # Create a set of all the sources we want to show
+    selected_sources = set(selected_leagues)
+
+    # If "Cycling" is selected, make sure we also include
+    # the specific league names, just in case.
+    if "Cycling" in selected_sources:
+        selected_sources.add("Cycling - World Tour")
+        selected_sources.add("Cycling - Pro Series")
 
     for item in all_items_from_cache:
-        item_source = item["source"]
-
         if item["url"] in seen_urls:
             continue
 
-        if item_source in selected_leagues:
+        # This is the new, simple check.
+        # If the item's source is in our set, add it.
+        if item["source"] in selected_sources:
             final_filtered_items.append(item)
             seen_urls.add(item["url"])
-        elif cycling_selected and item_source in [
-            "Cycling - World Tour",
-            "Cycling - Pro Series",
-        ]:
-            final_filtered_items.append(item)
-            seen_urls.add(item["url"])
-
-    # Re-sort the final filtered list
-    final_filtered_items.sort(
-        key=lambda x: datetime.fromisoformat(
-            x["published_date"].replace("Z", "+00:00")
-        ),
-        reverse=True,
-    )
-    # --- End Filtering ---
 
     st.divider()
 
