@@ -5,7 +5,7 @@ on:
   schedule:
     # This is a "cron" expression that means "at minute 0 of every hour"
     # (e.g., 1:00, 2:00, 3:00)
-    - cron: '0 * * * *'
+    - cron: '*/14 * * * *'
   
   # This line lets you run it manually from the GitHub "Actions" tab
   workflow_dispatch:

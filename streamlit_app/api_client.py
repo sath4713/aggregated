@@ -37,7 +37,7 @@ def get_schedule():
     logger.info("API Client: Fetching public schedule...")
     try:
         # No 'headers' argument needed
-        response = requests.get(schedule_url, timeout=15)
+        response = requests.get(schedule_url, timeout=30)
 
         if response.status_code == 200:
             logger.info("API Client: Schedule fetched successfully.")
@@ -70,7 +70,7 @@ def get_news(league_name: str):
     logger.info(f"API Client: Fetching news for {league_name}...")
     try:
         # No 'headers' argument needed
-        response = requests.get(news_url, timeout=10)
+        response = requests.get(news_url, timeout=30)
 
         if response.status_code == 200:
             return response.json()
